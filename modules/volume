@@ -142,7 +142,7 @@ custom_action() {
 
 	#Set the field separator to new line
 	IFS=$'\n'
-	for line in $( pactl list sinks ); do
+	for line in $( LANGUAGE=en_US.utf8 pactl list sinks ); do
 		# This line indicates a new sink
 		if [[ "${line}" =~ ^Sink[[:space:]]#[0-9]+$ ]]; then
 			if [ "${i}" = "" ]; then
@@ -163,7 +163,6 @@ custom_action() {
 			fi
 		fi
 	done
-
 	###
 	### Get active
 	###
